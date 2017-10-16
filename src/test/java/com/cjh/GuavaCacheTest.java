@@ -2,6 +2,8 @@ package com.cjh;
 
 import com.alibaba.fastjson.JSONObject;
 import com.cjh.guava.GuavaCache;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -18,6 +20,7 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring-config.xml"})
 public class GuavaCacheTest {
+    private static Logger logger= LogManager.getLogger(GuavaCacheTest.class);
 
     @Resource
     private GuavaCache cache;
@@ -27,21 +30,20 @@ public class GuavaCacheTest {
 
         /*第一次加载*/
         List<String> result=cache.getGuavaCache();
+        logger.info(JSONObject.toJSONString(result));
 
-        System.out.println(JSONObject.toJSONString(result));
-
-
-        /*第一次之后 直接去取本地缓存*/
+        /*第二次开始 直接去取本地缓存*/
         List<String> result1=cache.getGuavaCache();
+        logger.info(JSONObject.toJSONString(result1));
 
-        System.out.println(JSONObject.toJSONString(result1));
+        /*删除本地缓存*/
+        GuavaCache.refresh();
 
+        /*重新拉取缓存到本地*/
         List<String> result2=cache.getGuavaCache();
-
-        System.out.println(JSONObject.toJSONString(result2));
+        logger.info(JSONObject.toJSONString(result2));
 
         List<String> result3=cache.getGuavaCache();
-
-        System.out.println(JSONObject.toJSONString(result3));
+        logger.info(JSONObject.toJSONString(result3));
     }
 }

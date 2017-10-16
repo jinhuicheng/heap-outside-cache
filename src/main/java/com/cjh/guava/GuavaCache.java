@@ -56,7 +56,7 @@ public class GuavaCache {
                         Method method=params.method;
                         method.setAccessible(true); //禁用安全检查 java语言访问检查  ，以便提高效率
                         Object result=null;
-                        result=method.invoke(GuavaCache.this);
+                        result=method.invoke(GuavaCache.this); //反射调用本类中所有的method方法对应的方法
 
                         LOGGER.info("缓存数据存入。。。。。");
 

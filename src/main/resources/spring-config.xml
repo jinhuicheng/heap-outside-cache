@@ -20,8 +20,8 @@
         </property>
     </bean>
 
-    <!-- <bean id="configClient" class="com.jd.cachecloud.cfs.client.ConfigRESTClientFactoryBean"></bean>-->
 
-    <bean id="guavaCache" class="com.cjh.guava.GuavaCache" scope="singleton" >
-    </bean>
+    <bean id="guavaCache" class="com.cjh.guava.GuavaCache" scope="singleton"/>
+
+
 </beans>
