@@ -75,7 +75,7 @@ public class EhCache3Simple {
         LOGGER.info("本地获取数据："+JSONObject.toJSONString(result));
 
         if (result==null){
-
+            //TODO 缓存失效 重载机制
         }
 
         return  result;
