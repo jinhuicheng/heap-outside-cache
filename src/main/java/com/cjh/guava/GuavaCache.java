@@ -1,6 +1,7 @@
 package com.cjh.guava;
 
 import com.alibaba.fastjson.JSONObject;
+import com.cjh.common.Params;
 import com.google.common.cache.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -106,34 +107,4 @@ public class GuavaCache {
         return list;
     }
 
-
-    /**
-     * 内部类  定义缓存交互参数
-     */
-    private static class Params {
-        private Method method;
-
-        public Params(Method method) {
-            this.method = method;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-
-            Params params = (Params) o;
-
-            return method.equals(params.method);
-        }
-
-        @Override
-        public int hashCode() {
-//            return method.hashCode();
-            int result = 17;
-            final int prime = 31;
-            result = prime * result + ((method == null) ? 0 : method.hashCode());
-            return result;
-        }
-    }
 }

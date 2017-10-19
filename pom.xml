@@ -84,6 +84,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-aspects</artifactId>
+      <version>4.1.2.RELEASE</version>
     </dependency>
 
     <!--guava 相关-->
@@ -92,12 +93,11 @@
       <artifactId>guava</artifactId>
       <version>20.0</version>
     </dependency>
-
     <!--ehcache 相关-->
     <dependency>
-      <groupId>net.sf.ehcache</groupId>
+      <groupId>org.ehcache</groupId>
       <artifactId>ehcache</artifactId>
-      <version>2.10.4</version>
+      <version>3.4.0</version>
     </dependency>
 
     
